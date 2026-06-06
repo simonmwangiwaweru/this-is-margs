@@ -38,7 +38,7 @@ export default function CartDrawer() {
 
   const inputStyle: React.CSSProperties = {
     width: "100%", padding: ".75rem 1rem", borderRadius: 8,
-    border: "1.5px solid rgba(74,222,128,.2)", background: "rgba(255,255,255,.05)",
+    border: "1.5px solid rgba(192,132,252,.2)", background: "rgba(255,255,255,.05)",
     color: "white", fontFamily: "DM Sans, sans-serif", fontSize: ".92rem", outline: "none",
     boxSizing: "border-box",
   };
@@ -49,10 +49,10 @@ export default function CartDrawer() {
       <div onClick={handleClose} style={{ position:"fixed", inset:0, zIndex:200, background:"rgba(0,0,0,.55)", opacity: isOpen ? 1 : 0, pointerEvents: isOpen ? "auto" : "none", transition:"opacity .3s ease" }} />
 
       {/* Drawer */}
-      <div style={{ position:"fixed", top:0, right:0, bottom:0, zIndex:201, width:"min(420px,100vw)", background:"#0a1f0f", borderLeft:"1px solid rgba(74,222,128,.12)", display:"flex", flexDirection:"column", transform: isOpen ? "translateX(0)" : "translateX(100%)", transition:"transform .32s cubic-bezier(.4,0,.2,1)", boxShadow:"-8px 0 48px rgba(0,0,0,.5)" }}>
+      <div style={{ position:"fixed", top:0, right:0, bottom:0, zIndex:201, width:"min(420px,100vw)", background:"#0D0521", borderLeft:"1px solid rgba(192,132,252,.12)", display:"flex", flexDirection:"column", transform: isOpen ? "translateX(0)" : "translateX(100%)", transition:"transform .32s cubic-bezier(.4,0,.2,1)", boxShadow:"-8px 0 48px rgba(0,0,0,.5)" }}>
 
         {/* Header */}
-        <div style={{ padding:"1.25rem 1.5rem", borderBottom:"1px solid rgba(74,222,128,.1)", display:"flex", alignItems:"center", justifyContent:"space-between", flexShrink:0 }}>
+        <div style={{ padding:"1.25rem 1.5rem", borderBottom:"1px solid rgba(192,132,252,.1)", display:"flex", alignItems:"center", justifyContent:"space-between", flexShrink:0 }}>
           <div style={{ display:"flex", alignItems:"center", gap:".75rem" }}>
             {step === "form" || step === "loading" ? (
               <button onClick={() => setStep("cart")} style={{ background:"none", border:"none", cursor:"pointer", color:"rgba(255,255,255,.6)", fontSize:"1.1rem", padding:0, lineHeight:1 }}>←</button>
@@ -104,7 +104,7 @@ export default function CartDrawer() {
             {err && <p style={{ color:"#FCA5A5", fontSize:".82rem", margin:0 }}>⚠️ {err}</p>}
 
             {/* Order summary */}
-            <div style={{ background:"rgba(255,255,255,.04)", borderRadius:8, padding:"1rem", border:"1px solid rgba(74,222,128,.08)" }}>
+            <div style={{ background:"rgba(255,255,255,.04)", borderRadius:8, padding:"1rem", border:"1px solid rgba(192,132,252,.08)" }}>
               <p style={{ fontSize:".72rem", fontWeight:700, letterSpacing:".1em", textTransform:"uppercase", color:"rgba(255,255,255,.35)", marginBottom:".75rem" }}>Order Summary</p>
               {items.map(i => (
                 <div key={i.product.id} style={{ display:"flex", justifyContent:"space-between", fontSize:".82rem", color:"rgba(255,255,255,.6)", marginBottom:".35rem" }}>
@@ -112,7 +112,7 @@ export default function CartDrawer() {
                   <span>KES {(i.product.price * i.quantity).toLocaleString()}</span>
                 </div>
               ))}
-              <div style={{ borderTop:"1px solid rgba(74,222,128,.1)", marginTop:".75rem", paddingTop:".75rem", display:"flex", justifyContent:"space-between", fontWeight:700, color:"white" }}>
+              <div style={{ borderTop:"1px solid rgba(192,132,252,.1)", marginTop:".75rem", paddingTop:".75rem", display:"flex", justifyContent:"space-between", fontWeight:700, color:"white" }}>
                 <span>Total</span>
                 <span className="display" style={{ color:"var(--amber)", fontSize:"1.1rem" }}>KES {totalPrice.toLocaleString()}</span>
               </div>
@@ -132,13 +132,13 @@ export default function CartDrawer() {
                 <div style={{ flex:1, display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", gap:"1.25rem", paddingTop:"3rem" }}>
                   <div style={{ fontSize:"3.5rem", opacity:.35 }}>🛒</div>
                   <p style={{ color:"rgba(255,255,255,.4)", fontSize:".95rem", textAlign:"center" }}>Your cart is empty.<br/>Add some products to get started!</p>
-                  <button onClick={handleClose} style={{ background:"transparent", border:"1.5px solid rgba(74,222,128,.35)", borderRadius:"var(--radius-sm)", color:"var(--g400)", fontFamily:"DM Sans,sans-serif", fontWeight:700, fontSize:".8rem", letterSpacing:".1em", textTransform:"uppercase", padding:".7rem 1.6rem", cursor:"pointer" }}>
+                  <button onClick={handleClose} style={{ background:"transparent", border:"1.5px solid rgba(192,132,252,.35)", borderRadius:"var(--radius-sm)", color:"var(--g400)", fontFamily:"DM Sans,sans-serif", fontWeight:700, fontSize:".8rem", letterSpacing:".1em", textTransform:"uppercase", padding:".7rem 1.6rem", cursor:"pointer" }}>
                     Continue Shopping
                   </button>
                 </div>
               ) : (
                 items.map(item => (
-                  <div key={item.product.id} style={{ display:"flex", gap:"1rem", padding:"1rem", background:"rgba(255,255,255,.04)", borderRadius:"var(--radius-sm)", border:"1px solid rgba(74,222,128,.08)" }}>
+                  <div key={item.product.id} style={{ display:"flex", gap:"1rem", padding:"1rem", background:"rgba(255,255,255,.04)", borderRadius:"var(--radius-sm)", border:"1px solid rgba(192,132,252,.08)" }}>
                     <div style={{ width:72, height:72, borderRadius:10, overflow:"hidden", flexShrink:0, position:"relative", background:"rgba(255,255,255,.06)" }}>
                       <Image src={item.product.image} alt={item.product.name} fill style={{ objectFit:"cover" }} sizes="72px" />
                     </div>
@@ -146,7 +146,7 @@ export default function CartDrawer() {
                       <p style={{ fontWeight:700, fontSize:".88rem", color:"white", marginBottom:".2rem", lineHeight:1.3, overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap" }}>{item.product.name}</p>
                       <p style={{ fontSize:".75rem", color:"rgba(255,255,255,.4)", marginBottom:".65rem" }}>KES {item.product.price.toLocaleString()} each</p>
                       <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between" }}>
-                        <div style={{ display:"flex", alignItems:"center", border:"1px solid rgba(74,222,128,.2)", borderRadius:8, overflow:"hidden" }}>
+                        <div style={{ display:"flex", alignItems:"center", border:"1px solid rgba(192,132,252,.2)", borderRadius:8, overflow:"hidden" }}>
                           <button type="button" onClick={() => updateQuantity(item.product.id, item.quantity - 1)} style={{ width:30, height:30, background:"rgba(255,255,255,.05)", border:"none", cursor:"pointer", color:"rgba(255,255,255,.8)", fontSize:"1rem", fontWeight:700 }}>−</button>
                           <span style={{ width:28, textAlign:"center", fontSize:".85rem", fontWeight:700, color:"white" }}>{item.quantity}</span>
                           <button type="button" onClick={() => updateQuantity(item.product.id, item.quantity + 1)} style={{ width:30, height:30, background:"rgba(255,255,255,.05)", border:"none", cursor:"pointer", color:"rgba(255,255,255,.8)", fontSize:"1rem", fontWeight:700 }}>+</button>
@@ -163,7 +163,7 @@ export default function CartDrawer() {
             </div>
 
             {items.length > 0 && (
-              <div style={{ padding:"1.25rem 1.5rem", borderTop:"1px solid rgba(74,222,128,.1)", flexShrink:0, display:"flex", flexDirection:"column", gap:".875rem" }}>
+              <div style={{ padding:"1.25rem 1.5rem", borderTop:"1px solid rgba(192,132,252,.1)", flexShrink:0, display:"flex", flexDirection:"column", gap:".875rem" }}>
                 <div style={{ display:"flex", justifyContent:"space-between", alignItems:"baseline" }}>
                   <span style={{ fontSize:".85rem", color:"rgba(255,255,255,.5)", fontWeight:600 }}>SUBTOTAL</span>
                   <span className="display" style={{ fontSize:"1.6rem", color:"white" }}>KES {totalPrice.toLocaleString()}</span>

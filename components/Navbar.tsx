@@ -26,15 +26,15 @@ export default function Navbar() {
   useEffect(() => setOpen(false), [pathname]);
 
   return (
-    <nav className="navbar" style={{ boxShadow: scrolled ? "0 4px 32px rgba(0,0,0,.35)" : "none" }}>
+    <nav className="navbar" style={{ boxShadow: scrolled ? "0 4px 32px rgba(59,7,100,.4)" : "none" }}>
       <div style={{ maxWidth:1200, margin:"0 auto", padding:"0 1.5rem", height:70, display:"flex", alignItems:"center", justifyContent:"space-between" }}>
 
         {/* Logo */}
         <Link href="/" style={{ textDecoration:"none", display:"flex", flexDirection:"column", gap:0, lineHeight:1 }}>
-          <span className="display" style={{ fontSize:"1.55rem", background:"linear-gradient(135deg,var(--g400),var(--g300,#86efac))", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", backgroundClip:"text", letterSpacing:".07em" }}>
+          <span className="display" style={{ fontSize:"1.55rem", background:"linear-gradient(135deg,var(--g400),var(--g300))", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", backgroundClip:"text", letterSpacing:".07em" }}>
             THIS IS MARGS
           </span>
-          <span style={{ fontSize:".55rem", color:"rgba(74,222,128,.45)", letterSpacing:".24em", textTransform:"uppercase", fontFamily:"DM Sans,sans-serif", marginTop:"-1px" }}>
+          <span style={{ fontSize:".55rem", color:"rgba(192,132,252,.5)", letterSpacing:".24em", textTransform:"uppercase", fontFamily:"DM Sans,sans-serif", marginTop:"-1px" }}>
             Health &amp; Wellness · Kenya
           </span>
         </Link>
@@ -63,7 +63,7 @@ export default function Navbar() {
           </Link>
 
           {/* Cart button */}
-          <button onClick={openCart} aria-label="Open cart" style={{ position:"relative", background:"rgba(74,222,128,.1)", border:"1.5px solid rgba(74,222,128,.2)", borderRadius:"50%", width:42, height:42, display:"flex", alignItems:"center", justifyContent:"center", cursor:"pointer", flexShrink:0 }}>
+          <button onClick={openCart} aria-label="Open cart" style={{ position:"relative", background:"rgba(192,132,252,.12)", border:"1.5px solid rgba(192,132,252,.25)", borderRadius:"50%", width:42, height:42, display:"flex", alignItems:"center", justifyContent:"center", cursor:"pointer", flexShrink:0, transition:"all .2s" }}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--g400)" strokeWidth="2">
               <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
               <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
@@ -92,13 +92,13 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="anim-slide-down" style={{ background:"rgba(5,46,22,.98)", borderTop:"1px solid rgba(74,222,128,.1)", padding:"1.5rem", display:"flex", flexDirection:"column", gap:"1.2rem" }}>
+        <div className="anim-slide-down" style={{ background:"rgba(26,5,51,.98)", borderTop:"1px solid rgba(192,132,252,.12)", padding:"1.5rem", display:"flex", flexDirection:"column", gap:"1.2rem" }}>
           {links.map(l => (
             <Link key={l.href} href={l.href} style={{
               fontFamily:"DM Sans,sans-serif", fontWeight:600, fontSize:"1rem",
               letterSpacing:".08em", textTransform:"uppercase", textDecoration:"none",
               color: pathname === l.href ? "var(--g400)" : "rgba(255,255,255,.82)",
-              padding:".5rem 0", borderBottom:"1px solid rgba(74,222,128,.08)",
+              padding:".5rem 0", borderBottom:"1px solid rgba(192,132,252,.1)",
             }}>{l.label}</Link>
           ))}
           <Link href="/shop" className="btn btn-amber" style={{ textAlign:"center", marginTop:".5rem" }}>
