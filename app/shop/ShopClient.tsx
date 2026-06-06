@@ -1,9 +1,21 @@
 "use client";
 import { useState, useMemo } from "react";
 import ProductCard from "@/components/ProductCard";
-import { products, categories } from "@/lib/products";
+import type { DBProduct } from "@/lib/getProducts";
 
-export default function ShopClient() {
+const CATEGORIES = ["All","Alkaline","Coffee & Tea","Vitamins","Bone & Joint","Gut Health","Skin & Beauty"];
+
+function dbToProduct(p: DBProduct) {
+  return {
+    id: p.id, name: p.name, description: p.description,
+    price: p.price, originalPrice: p.original_price ?? undefined,
+    category: p.category, image: p.image_url,
+    badge: p.badge ?? undefined, rating: p.rating,
+    reviews: p.reviews, benefits: p.benefits,
+  };
+}
+
+export default function ShopClient({ products }: { products: DBProduct[] }) {
   const [activeCategory, setActiveCategory] = useState("All");
   const [search, setSearch] = useState("");
 
@@ -13,7 +25,7 @@ export default function ShopClient() {
       const ms = p.name.toLowerCase().includes(search.toLowerCase()) || p.description.toLowerCase().includes(search.toLowerCase());
       return mc && ms;
     }),
-  [activeCategory, search]);
+  [products, activeCategory, search]);
 
   return (
     <>
@@ -37,7 +49,7 @@ export default function ShopClient() {
       <section style={{ background:"white", borderBottom:"1px solid var(--gray-100)", padding:"1.1rem 0", position:"sticky", top:70, zIndex:50, boxShadow:"0 2px 16px rgba(5,46,22,.08)" }}>
         <div style={{ maxWidth:1200, margin:"0 auto", padding:"0 1.5rem", display:"flex", alignItems:"center", gap:"1rem", flexWrap:"wrap", justifyContent:"space-between" }}>
           <div style={{ display:"flex", gap:".5rem", flexWrap:"wrap" }}>
-            {categories.map(cat => (
+            {CATEGORIES.map(cat => (
               <button key={cat} className={`filter-pill${activeCategory===cat?" active":""}`} onClick={() => setActiveCategory(cat)}>{cat}</button>
             ))}
           </div>
@@ -69,7 +81,7 @@ export default function ShopClient() {
             </div>
           ) : (
             <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(268px,1fr))", gap:"1.5rem" }}>
-              {filtered.map(p => <ProductCard key={p.id} product={p} />)}
+              {filtered.map(p => <ProductCard key={p.id} product={dbToProduct(p)} />)}
             </div>
           )}
         </div>

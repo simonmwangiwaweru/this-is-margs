@@ -1,8 +1,7 @@
-"use client";
 import Link from "next/link";
 import Image from "next/image";
 import ProductCard from "@/components/ProductCard";
-import { featuredProducts } from "@/lib/products";
+import { getFeaturedProducts } from "@/lib/getProducts";
 import NewsletterForm from "@/components/NewsletterForm";
 
 const benefits = [
@@ -30,7 +29,8 @@ function Stars({ n }: { n: number }) {
   );
 }
 
-export default function HomePage() {
+export default async function HomePage() {
+  const featuredProducts = await getFeaturedProducts();
   return (
     <>
       {/* ── ANNOUNCEMENT BAR ── */}
@@ -190,7 +190,7 @@ export default function HomePage() {
           <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(268px,1fr))", gap:"1.5rem" }}>
             {featuredProducts.map((p,i) => (
               <div key={p.id} className="reveal" style={{ animationDelay:`${i*.08}s` }}>
-                <ProductCard product={p} />
+                <ProductCard product={{ id:p.id, name:p.name, description:p.description, price:p.price, originalPrice:p.original_price??undefined, category:p.category, image:p.image_url, badge:p.badge??undefined, rating:p.rating, reviews:p.reviews, benefits:p.benefits }} />
               </div>
             ))}
           </div>
