@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
 import { supabaseAdmin } from "@/lib/supabase-admin";
-import { toggleProductActive, toggleProductFeatured, deleteProduct } from "@/app/actions/products";
+import { toggleProductActive, toggleProductFeatured } from "@/app/actions/products";
+import DeleteProductButton from "./DeleteProductButton";
 
 export const metadata = { title: "Products | MARGS Admin" };
 
@@ -68,11 +68,7 @@ export default async function ProductsPage() {
                 <Link href={`/admin/dashboard/products/${p.id}/edit`} style={{ flex:1, padding:".6rem", borderRadius:"var(--radius-sm)", background:"var(--gray-100)", color:"var(--gray-700)", textDecoration:"none", fontFamily:"DM Sans,sans-serif", fontWeight:700, fontSize:".78rem", textAlign:"center", letterSpacing:".06em", textTransform:"uppercase" }}>
                   Edit
                 </Link>
-                <form action={deleteProduct.bind(null, p.id)} onSubmit={e => { if (!confirm(`Delete "${p.name}"?`)) e.preventDefault(); }}>
-                  <button type="submit" style={{ padding:".6rem .875rem", borderRadius:"var(--radius-sm)", background:"#FFF1F2", color:"var(--g700)", border:"none", cursor:"pointer", fontFamily:"DM Sans,sans-serif", fontWeight:700, fontSize:".78rem", letterSpacing:".06em", textTransform:"uppercase" }}>
-                    Delete
-                  </button>
-                </form>
+                <DeleteProductButton id={p.id} name={p.name} />
               </div>
             </div>
           </div>
