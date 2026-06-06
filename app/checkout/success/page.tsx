@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Order Confirmed | THIS IS MARGS",
 };
 
-const WHATSAPP = "254700000000";
+const WHATSAPP = "254736041184";
 
 export default async function SuccessPage({
   searchParams,

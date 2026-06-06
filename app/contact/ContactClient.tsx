@@ -76,7 +76,7 @@ export default function ContactClient() {
                 <p style={{ color:"rgba(255,255,255,.72)", fontSize:".9rem", lineHeight:1.7 }}>
                   Thanks <strong style={{ color:"white" }}>{form.name}</strong>! We&apos;ve received your message and will reply within 24 hours.
                 </p>
-                <a href="https://wa.me/254700000000" target="_blank" rel="noopener noreferrer"
+                <a href="https://wa.me/254736041184" target="_blank" rel="noopener noreferrer"
                   style={{ display:"inline-flex", alignItems:"center", gap:".5rem", background:"#25D366", color:"white", fontWeight:700, fontSize:".85rem", letterSpacing:".07em", textTransform:"uppercase", padding:".75rem 1.6rem", borderRadius:8, textDecoration:"none", marginTop:"1.5rem" }}>
                   Chat on WhatsApp
                 </a>
@@ -134,7 +134,7 @@ export default function ContactClient() {
                 </div>
               </div>
               <p style={{ color:"rgba(255,255,255,.72)", fontSize:".88rem", lineHeight:1.72, marginBottom:"1.25rem" }}>Most Kenyan orders happen on WhatsApp! Message us for product advice, order tracking, or anything else.</p>
-              <a href="https://wa.me/254700000000?text=Hi%20THIS%20IS%20MARGS!%20I%20have%20a%20question." target="_blank" rel="noopener noreferrer"
+              <a href="https://wa.me/254736041184?text=Hi%20THIS%20IS%20MARGS!%20I%20have%20a%20question." target="_blank" rel="noopener noreferrer"
                 style={{ display:"inline-flex", alignItems:"center", gap:".5rem", background:"#25D366", color:"white", fontFamily:"DM Sans,sans-serif", fontWeight:700, fontSize:".85rem", letterSpacing:".08em", textTransform:"uppercase", padding:".75rem 1.5rem", borderRadius:8, textDecoration:"none", boxShadow:"0 4px 16px rgba(37,211,102,.35)", transition:"all .2s" }}
                 onMouseEnter={e => ((e.currentTarget as HTMLElement).style.transform="translateY(-2px)")}
                 onMouseLeave={e => ((e.currentTarget as HTMLElement).style.transform="translateY(0)")}

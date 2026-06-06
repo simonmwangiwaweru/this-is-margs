@@ -6,7 +6,7 @@ import type { Product } from "@/lib/products";
 import ProductCard from "@/components/ProductCard";
 import { useCart } from "@/lib/cartContext";
 
-const WHATSAPP = "254700000000";
+const WHATSAPP = "254736041184";
 
 const CAT_COLOR: Record<string, { bar: string; tagBg: string; tag: string }> = {
   "Alkaline":     { bar:"#0EA5E9", tagBg:"#E0F2FE", tag:"#0369A1" },

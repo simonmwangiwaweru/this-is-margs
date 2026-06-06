@@ -84,7 +84,7 @@ export default function ShopClient() {
           <p className="label-amber" style={{ marginBottom:".75rem" }}>Need Help Choosing?</p>
           <h2 className="display" style={{ fontSize:"2.2rem", color:"white", letterSpacing:".05em", marginBottom:"1rem" }}>CHAT WITH OUR WELLNESS EXPERTS</h2>
           <p style={{ color:"rgba(255,255,255,.62)", fontSize:".92rem", marginBottom:"2rem", lineHeight:1.7 }}>Not sure which supplement is right for you? Our team is ready to help on WhatsApp.</p>
-          <a href="https://wa.me/254700000000?text=Hi%20THIS%20IS%20MARGS!%20I%20need%20help%20choosing." target="_blank" rel="noopener noreferrer"
+          <a href="https://wa.me/254736041184?text=Hi%20THIS%20IS%20MARGS!%20I%20need%20help%20choosing." target="_blank" rel="noopener noreferrer"
             style={{ display:"inline-flex", alignItems:"center", gap:".6rem", background:"#25D366", color:"white", fontFamily:"DM Sans,sans-serif", fontWeight:700, fontSize:".9rem", letterSpacing:".07em", textTransform:"uppercase", padding:".9rem 2.2rem", borderRadius:8, textDecoration:"none", boxShadow:"0 4px 24px rgba(37,211,102,.45)", transition:"all .2s" }}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform="translateY(-2px)"; (e.currentTarget as HTMLElement).style.boxShadow="0 8px 32px rgba(37,211,102,.6)"; }}
             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform="translateY(0)"; (e.currentTarget as HTMLElement).style.boxShadow="0 4px 24px rgba(37,211,102,.45)"; }}

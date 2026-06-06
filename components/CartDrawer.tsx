@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "@/lib/cartContext";
 
-const WHATSAPP = "254700000000";
+const WHATSAPP = "254736041184";
 
 export default function CartDrawer() {
   const { items, removeFromCart, updateQuantity, clearCart, totalPrice, totalItems, isOpen, closeCart } = useCart();

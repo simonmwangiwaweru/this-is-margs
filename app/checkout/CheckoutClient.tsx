@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { useCart } from "@/lib/cartContext";
 import { submitOrder } from "@/app/actions/orders";
 
-const WHATSAPP = "254700000000";
+const WHATSAPP = "254736041184";
 type PayMethod = "mpesa" | "delivery";
 type View      = "form" | "waiting" | "failed";
 
