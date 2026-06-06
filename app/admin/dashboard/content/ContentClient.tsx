@@ -21,6 +21,13 @@ const SECTIONS = [
       { key:"contact_hours",   label:"Opening Hours",    type:"input", placeholder:"Mon–Sat 8am–7pm EAT" },
     ],
   },
+  {
+    title: "Order Notifications",
+    fields: [
+      { key:"notification_email", label:"Notification Email", type:"input", placeholder:"your@email.com" },
+      { key:"notification_phone", label:"Notification WhatsApp (with country code, no +)", type:"input", placeholder:"254736041184" },
+    ],
+  },
 ];
 
 export default function ContentClient({ content }: { content: Record<string, string> }) {
