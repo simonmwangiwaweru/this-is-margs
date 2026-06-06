@@ -46,12 +46,12 @@ export default async function HomePage() {
           Whey Protein inspiration)
       ══════════════════════════════════════ */}
       <section style={{
-        background:"linear-gradient(150deg, var(--g950) 0%, #3A0D18 40%, var(--g900) 100%)",
+        background:"linear-gradient(150deg, #1A0533 0%, #2D1065 40%, var(--g900) 100%)",
         minHeight:"94vh", display:"flex", alignItems:"center",
         position:"relative", overflow:"hidden",
       }}>
         {/* Radial glow spots */}
-        <div style={{ position:"absolute", inset:0, backgroundImage:"radial-gradient(ellipse at 65% 45%,rgba(244,63,94,.18) 0%,transparent 55%), radial-gradient(ellipse at 15% 75%,rgba(245,158,11,.10) 0%,transparent 45%)", pointerEvents:"none" }} />
+        <div style={{ position:"absolute", inset:0, backgroundImage:"radial-gradient(ellipse at 65% 45%,rgba(168,85,247,.18) 0%,transparent 55%), radial-gradient(ellipse at 15% 75%,rgba(245,158,11,.10) 0%,transparent 45%)", pointerEvents:"none" }} />
 
         {/* HUGE "MARGS" background watermark */}
         <div style={{
@@ -67,7 +67,7 @@ export default async function HomePage() {
 
         {/* Decorative rings */}
         {[480,340,200].map((s,i) => (
-          <div key={s} style={{ position:"absolute", right:`${-s*.12}px`, top:"50%", transform:"translateY(-50%)", width:s, height:s, borderRadius:"50%", border:`1px solid rgba(251,113,133,${.07-i*.02})`, pointerEvents:"none" }} />
+          <div key={s} style={{ position:"absolute", right:`${-s*.12}px`, top:"50%", transform:"translateY(-50%)", width:s, height:s, borderRadius:"50%", border:`1px solid rgba(192,132,252,${.07-i*.02})`, pointerEvents:"none" }} />
         ))}
 
         <div className="container" style={{ display:"grid", gridTemplateColumns:"1.1fr 1fr", alignItems:"center", gap:"3rem", padding:"100px 1.5rem 80px", width:"100%", position:"relative" }}>
@@ -75,7 +75,7 @@ export default async function HomePage() {
           {/* ── LEFT: TEXT ── */}
           <div className="anim-fade-up">
             {/* Trust pill */}
-            <div style={{ display:"inline-flex", alignItems:"center", gap:".5rem", background:"rgba(251,113,133,.12)", border:"1.5px solid rgba(251,113,133,.28)", borderRadius:99, padding:".35rem 1rem", marginBottom:"2rem" }}>
+            <div style={{ display:"inline-flex", alignItems:"center", gap:".5rem", background:"rgba(192,132,252,.12)", border:"1.5px solid rgba(192,132,252,.28)", borderRadius:99, padding:".35rem 1rem", marginBottom:"2rem" }}>
               <span style={{ width:7, height:7, borderRadius:"50%", background:"var(--g400)", boxShadow:"0 0 8px var(--g400)", display:"block" }} />
               <span style={{ fontSize:".68rem", fontWeight:700, letterSpacing:".18em", textTransform:"uppercase", color:"var(--g400)" }}>Kenya&apos;s Premier Wellness Brand</span>
             </div>
@@ -98,7 +98,7 @@ export default async function HomePage() {
             </div>
 
             {/* Stats row */}
-            <div style={{ display:"flex", gap:"2.5rem", flexWrap:"wrap", paddingTop:"2rem", borderTop:"1px solid rgba(251,113,133,.15)" }}>
+            <div style={{ display:"flex", gap:"2.5rem", flexWrap:"wrap", paddingTop:"2rem", borderTop:"1px solid rgba(192,132,252,.15)" }}>
               {[["2,500+","Customers"],["15","Products"],["4.9★","Rating"],["47","Counties"]].map(([v,l]) => (
                 <div key={l}>
                   <div className="display" style={{ fontSize:"2rem", color:"var(--amber)", lineHeight:1 }}>{v}</div>
@@ -113,9 +113,9 @@ export default async function HomePage() {
             {/* Circular image frame */}
             <div style={{
               width:"min(460px,100%)", aspectRatio:"1", borderRadius:"50%",
-              background:"linear-gradient(135deg,rgba(251,113,133,.25),rgba(156,18,57,.4))",
+              background:"linear-gradient(135deg,rgba(192,132,252,.25),rgba(156,18,57,.4))",
               position:"relative", overflow:"hidden",
-              boxShadow:"0 32px 80px rgba(76,5,25,.6), 0 0 0 20px rgba(251,113,133,.06)",
+              boxShadow:"0 32px 80px rgba(59,7,100,.6), 0 0 0 20px rgba(192,132,252,.06)",
             }}>
               <Image
                 src="https://picsum.photos/seed/wellness-products-fresh/600/600"
@@ -125,7 +125,7 @@ export default async function HomePage() {
                 sizes="(max-width:768px) 0vw,50vw"
               />
               {/* inner vignette */}
-              <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at center,transparent 40%,rgba(76,5,25,.4) 100%)" }} />
+              <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at center,transparent 40%,rgba(59,7,100,.4) 100%)" }} />
             </div>
 
             {/* Floating icon badges */}
@@ -204,8 +204,8 @@ export default async function HomePage() {
       </section>
 
       {/* ── PRODUCT SPOTLIGHT ── */}
-      <section style={{ background:"linear-gradient(150deg,var(--g950) 0%,#3A0D18 50%,var(--g900) 100%)", padding:"100px 0", position:"relative", overflow:"hidden" }}>
-        <div style={{ position:"absolute", inset:0, backgroundImage:"radial-gradient(ellipse at 30% 60%,rgba(244,63,94,.15) 0%,transparent 55%)", pointerEvents:"none" }} />
+      <section style={{ background:"linear-gradient(150deg,var(--g950) 0%,#2D1065 50%,var(--g900) 100%)", padding:"100px 0", position:"relative", overflow:"hidden" }}>
+        <div style={{ position:"absolute", inset:0, backgroundImage:"radial-gradient(ellipse at 30% 60%,rgba(168,85,247,.15) 0%,transparent 55%)", pointerEvents:"none" }} />
         {/* Background text */}
         <div style={{ position:"absolute", bottom:-30, right:-40, fontFamily:"'Bebas Neue',sans-serif", fontSize:"clamp(8rem,20vw,16rem)", color:"rgba(255,255,255,.03)", pointerEvents:"none", userSelect:"none", letterSpacing:".06em" }}>COFFEE</div>
 
@@ -214,7 +214,7 @@ export default async function HomePage() {
           <div className="reveal" style={{ position:"relative" }}>
             <div style={{ borderRadius:"var(--radius-xl)", overflow:"hidden", aspectRatio:"4/5", position:"relative", boxShadow:"0 40px 100px rgba(0,0,0,.6)" }}>
               <Image src="https://picsum.photos/seed/cordyceps-product-shot/600/750" alt="Cordyceps Coffee" fill style={{ objectFit:"cover" }} sizes="(max-width:768px) 0vw,50vw" />
-              <div style={{ position:"absolute", inset:0, background:"linear-gradient(180deg,transparent 55%,rgba(76,5,25,.8) 100%)" }} />
+              <div style={{ position:"absolute", inset:0, background:"linear-gradient(180deg,transparent 55%,rgba(59,7,100,.8) 100%)" }} />
             </div>
             <div style={{ position:"absolute", top:24, left:24, background:"var(--amber)", borderRadius:10, padding:".6rem 1.1rem", boxShadow:"var(--glow-amber)" }}>
               <span style={{ fontSize:".65rem", fontWeight:700, letterSpacing:".14em", textTransform:"uppercase", color:"white" }}>Save KES 1,000</span>
@@ -236,7 +236,7 @@ export default async function HomePage() {
                 ["🛡️","Supports Immunity", "Strengthens your natural defenses for overall wellness"],
               ].map(([icon,title,desc]) => (
                 <div key={String(title)} style={{ display:"flex", gap:"1rem", alignItems:"flex-start" }}>
-                  <div style={{ width:42, height:42, borderRadius:12, background:"rgba(251,113,133,.15)", border:"1px solid rgba(251,113,133,.25)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:"1.1rem", flexShrink:0 }}>{icon}</div>
+                  <div style={{ width:42, height:42, borderRadius:12, background:"rgba(192,132,252,.15)", border:"1px solid rgba(192,132,252,.25)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:"1.1rem", flexShrink:0 }}>{icon}</div>
                   <div>
                     <div style={{ fontWeight:700, fontSize:".9rem", color:"white" }}>{title}</div>
                     <div style={{ fontSize:".78rem", color:"rgba(255,255,255,.5)", marginTop:".15rem" }}>{desc}</div>
@@ -330,7 +330,7 @@ export default async function HomePage() {
 
       {/* ── NEWSLETTER ── */}
       <section style={{ background:"linear-gradient(135deg,var(--g900) 0%,var(--g700) 50%,var(--g800) 100%)", backgroundSize:"200% 200%", animation:"gradient 8s ease infinite", padding:"88px 0", position:"relative", overflow:"hidden" }}>
-        <div style={{ position:"absolute", inset:0, backgroundImage:"radial-gradient(circle at 20% 50%,rgba(244,63,94,.15) 0%,transparent 50%)", pointerEvents:"none" }} />
+        <div style={{ position:"absolute", inset:0, backgroundImage:"radial-gradient(circle at 20% 50%,rgba(168,85,247,.15) 0%,transparent 50%)", pointerEvents:"none" }} />
         <div className="reveal container" style={{ maxWidth:620, textAlign:"center", position:"relative" }}>
           <p className="label-amber" style={{ marginBottom:".5rem" }}>Join the Wellness Community</p>
           <div className="divider-gold" />

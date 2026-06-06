@@ -8,16 +8,19 @@ export default function ScrollReveal() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.05 }
     );
 
-    const elements = document.querySelectorAll(".reveal");
-    elements.forEach((el) => observer.observe(el));
+    const observe = () =>
+      document.querySelectorAll(".reveal:not(.visible)").forEach((el) => observer.observe(el));
 
-    return () => observer.disconnect();
+    observe();
+    const t = setTimeout(observe, 200);
+    return () => { clearTimeout(t); observer.disconnect(); };
   }, []);
 
   return null;
