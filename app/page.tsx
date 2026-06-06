@@ -34,9 +34,9 @@ export default async function HomePage() {
   return (
     <>
       {/* ── ANNOUNCEMENT BAR ── */}
-      <div style={{ background:"linear-gradient(90deg,var(--g800),var(--g700),var(--g800))", padding:".5rem 1rem", textAlign:"center" }}>
-        <p style={{ fontSize:".78rem", fontWeight:600, color:"white", letterSpacing:".06em" }}>
-          🚚 FREE DELIVERY in Nairobi on orders above KES 3,000 &nbsp;·&nbsp; Use code <strong>HEALTHY10</strong> for 10% off your first order
+      <div style={{ background:"linear-gradient(90deg,var(--g800),var(--g700),var(--g800))", padding:".45rem 1rem", textAlign:"center" }}>
+        <p style={{ fontSize:".72rem", fontWeight:600, color:"white", letterSpacing:".04em", whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>
+          🚚 FREE DELIVERY in Nairobi on orders above KES 3,000 · Code <strong>HEALTHY10</strong> = 10% off
         </p>
       </div>
 
@@ -70,7 +70,7 @@ export default async function HomePage() {
           <div key={s} style={{ position:"absolute", right:`${-s*.12}px`, top:"50%", transform:"translateY(-50%)", width:s, height:s, borderRadius:"50%", border:`1px solid rgba(192,132,252,${.07-i*.02})`, pointerEvents:"none" }} />
         ))}
 
-        <div className="container" style={{ display:"grid", gridTemplateColumns:"1.1fr 1fr", alignItems:"center", gap:"3rem", padding:"100px 1.5rem 80px", width:"100%", position:"relative" }}>
+        <div className="container hero-grid" style={{ display:"grid", gridTemplateColumns:"1.1fr 1fr", alignItems:"center", gap:"3rem", padding:"100px 1.5rem 80px", width:"100%", position:"relative" }}>
 
           {/* ── LEFT: TEXT ── */}
           <div className="anim-fade-up">
@@ -85,7 +85,7 @@ export default async function HomePage() {
             <h1 className="display" style={{ fontSize:"clamp(3.5rem,9vw,7rem)", color:"var(--g400)", lineHeight:.88, marginBottom:".15rem" }}>YOUR</h1>
             <h1 className="display" style={{ fontSize:"clamp(3.5rem,9vw,7rem)", color:"white", lineHeight:.88, marginBottom:"1.6rem" }}>BODY.</h1>
 
-            <p style={{ fontSize:"1.05rem", color:"rgba(255,255,255,.65)", lineHeight:1.8, maxWidth:440, marginBottom:"2.5rem" }}>
+            <p className="hero-body" style={{ fontSize:"1.05rem", color:"rgba(255,255,255,.65)", lineHeight:1.7, maxWidth:440, marginBottom:"2.5rem" }}>
               15 premium natural supplements — coffee blends, vitamins, bone health, gut care, skin &amp; more. Lab tested. Delivered across all 47 counties.
             </p>
 
@@ -152,7 +152,16 @@ export default async function HomePage() {
 
         <style>{`
           @media(max-width:768px){
-            .hero-main-grid{grid-template-columns:1fr!important}
+            .hero-grid{
+              grid-template-columns:1fr!important;
+              padding:60px 1.25rem 50px!important;
+              gap:2rem!important;
+            }
+            .hero-body{
+              font-size:.92rem!important;
+              line-height:1.6!important;
+              margin-bottom:1.75rem!important;
+            }
             .hero-right-panel{display:none!important}
           }
         `}</style>
