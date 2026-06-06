@@ -32,6 +32,8 @@ export default function ProductForm({ product }: Props) {
   const [benefitInput, setBenefitInput] = useState("");
   const [loading,      setLoading]      = useState(false);
   const [error,        setError]        = useState("");
+  const [uploading,    setUploading]    = useState(false);
+  const [uploadError,  setUploadError]  = useState("");
 
   const set = <K extends keyof ProductPayload>(k: K, v: ProductPayload[K]) =>
     setForm(f => ({ ...f, [k]: v }));
@@ -46,6 +48,20 @@ export default function ProductForm({ product }: Props) {
 
   const removeBenefit = (b: string) =>
     set("benefits", form.benefits.filter(x => x !== b));
+
+  const handleImageFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploading(true);
+    setUploadError("");
+    const fd = new FormData();
+    fd.append("file", file);
+    const res = await fetch("/api/upload", { method: "POST", body: fd });
+    const json = await res.json();
+    setUploading(false);
+    if (json.error) { setUploadError(json.error); return; }
+    set("image_url", json.url);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -116,15 +132,32 @@ export default function ProductForm({ product }: Props) {
       {/* Image */}
       <div className="card" style={{ padding:"2rem" }}>
         <h3 className="serif" style={{ fontWeight:700, fontSize:"1.05rem", color:"var(--gray-900)", marginBottom:"1.5rem" }}>Product Image</h3>
+
+        {/* File upload */}
+        <div style={{ marginBottom:"1.25rem" }}>
+          <label style={labelStyle}>Upload from device</label>
+          <label style={{ display:"inline-flex", alignItems:"center", gap:".6rem", padding:".75rem 1.25rem", background:"var(--g700)", color:"white", borderRadius:"var(--radius-sm)", cursor: uploading ? "wait" : "pointer", fontFamily:"DM Sans,sans-serif", fontWeight:700, fontSize:".82rem", opacity: uploading ? .7 : 1 }}>
+            {uploading ? "Uploading…" : "📁 Choose Image"}
+            <input type="file" accept="image/*" style={{ display:"none" }} onChange={handleImageFile} disabled={uploading} />
+          </label>
+          <p style={{ fontSize:".72rem", color:"var(--text-soft)", marginTop:".4rem" }}>JPG, PNG, WEBP — max 5 MB. Works on phone and computer.</p>
+          {uploadError && <p style={{ fontSize:".75rem", color:"var(--g700)", marginTop:".3rem" }}>⚠️ {uploadError}</p>}
+        </div>
+
+        {/* OR divider */}
+        <div style={{ display:"flex", alignItems:"center", gap:"1rem", marginBottom:"1.25rem" }}>
+          <div style={{ flex:1, height:1, background:"var(--gray-200)" }} />
+          <span style={{ fontSize:".72rem", color:"var(--text-soft)", fontWeight:600 }}>OR PASTE A URL</span>
+          <div style={{ flex:1, height:1, background:"var(--gray-200)" }} />
+        </div>
+
         <div>
           <label style={labelStyle}>Image URL *</label>
           <input required style={inputStyle} value={form.image_url} onChange={e => set("image_url", e.target.value)} placeholder="https://..." />
-          <p style={{ fontSize:".75rem", color:"var(--text-soft)", marginTop:".4rem" }}>
-            Upload your image to Google Drive, WhatsApp, or any image host and paste the direct link here.
-          </p>
         </div>
+
         {form.image_url && (
-          <div style={{ marginTop:"1rem", width:120, height:120, borderRadius:"var(--radius-sm)", overflow:"hidden", border:"1px solid var(--gray-200)", position:"relative", background:"var(--gray-50)" }}>
+          <div style={{ marginTop:"1rem", width:120, height:120, borderRadius:"var(--radius-sm)", overflow:"hidden", border:"1px solid var(--gray-200)", background:"var(--gray-50)" }}>
             <img src={form.image_url} alt="preview" style={{ width:"100%", height:"100%", objectFit:"cover" }} onError={e => (e.currentTarget.style.display="none")} />
           </div>
         )}
